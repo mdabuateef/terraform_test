@@ -2,7 +2,7 @@ resource "aws_lb" "load-balancer" {
   name               = "ab1-alb"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [module.sg.asg.id]
+  security_groups    = [var.security_groups]
   enable_deletion_protection = true
 
   enable_cross_zone_load_balancing = true
@@ -18,7 +18,7 @@ resource "aws_lb_target_group" "http-tg" {
   name     = "ab1-target-group"
   port     = 80
   protocol = "HTTP"
-  vpc_id   = module.vpc.vpc.id
+  vpc_id   = var.vpc_id
 }
 
 resource "aws_lb_listener" "http-listner"{

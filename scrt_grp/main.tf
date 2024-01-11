@@ -1,7 +1,7 @@
 resource "aws_security_group" "alb_sg" {
   name        = "ab1-alb-sg"
   description = "Security group for ALB"
-  vpc_id      = module.vpc.vpc.id
+  vpc_id      = var.vpc_id
 
   ingress {
     from_port   = 0
