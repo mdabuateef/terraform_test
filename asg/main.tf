@@ -1,4 +1,4 @@
-resource "aws_launch_template" "launc-template"{
+resource "aws_launch_template" "launch-template"{
   name = "nginx-lt"
     block_device_mappings {
     device_name = "/dev/xvda"
@@ -31,6 +31,6 @@ resource "aws_autoscaling_group" "asg" {
   vpc_zone_identifier = [var.public_subnet_1_id , var.public_subnet_1_id]
   target_group_arns = [var.target_group_arn]
 
-  launch_configuration = aws_launch_configuration.launch-template.name
+  launch_configuration = aws_launch_template.launch-template.name
 }
 
