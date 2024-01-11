@@ -11,6 +11,7 @@ module "asg" {
   public_subnet_1_id = module.vpc.public_subnet_1.id
   public_subnet_2_id = module.vpc.public_subnet_2.id
   target_group_arn = module.alb.target_group.arn
+  pub-sg-1 = module.sg.Security_grp.id
 }
 
 module "alb" {

@@ -9,3 +9,7 @@ variable "public_subnet_2_id" {
 variable "target_group_arn" {
   type = string
 }
+
+variable "pub-sg-1" {
+  type = string
+}

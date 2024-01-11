@@ -9,7 +9,7 @@ resource "aws_lb" "load-balancer" {
 
   access_logs {
     bucket  = "ab1-alb-logs"
-    prefix  = "logs/"
+    prefix  = "logs"
     enabled = true
   }
 }
@@ -19,6 +19,11 @@ resource "aws_lb_target_group" "http-tg" {
   port     = 80
   protocol = "HTTP"
   vpc_id   = var.vpc_id
+  health_check {
+    port = "80"
+    protocol = "HTTP"
+    path = "/"
+  }
 }
 
 resource "aws_lb_listener" "http-listner"{
@@ -31,3 +36,11 @@ target_group_arn = aws_lb_target_group.http-tg.arn
 }
 
 }
+
+
+# resource "aws_instance" "nginx-instance" {
+#   ami = "ami-0d3f444bc76de0a79"
+#   instance_type = "t2.micro"
+#   associate_public_ip_address = true
+
+# } 
