@@ -15,7 +15,7 @@ module "asg" {
 
 module "alb" {
   source = "./alb"
-  security_groups = [module.sg.asg.id]
+  security_groups = [module.sg.Security_grp.id]
   vpc_id = module.vpc.vpc.id
 }
 
