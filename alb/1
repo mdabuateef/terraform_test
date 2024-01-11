@@ -1,0 +1,23 @@
+resource "aws_lb" "example" {
+  name               = "ab1-alb"
+  internal           = false
+  load_balancer_type = "application"
+  security_groups    = [module.security_groups.alb_sg_id]
+  enable_deletion_protection = true
+
+  enable_cross_zone_load_balancing = true
+
+  access_logs {
+    bucket  = "ab1-alb-logs"
+    prefix  = "logs/"
+    enabled = true
+  }
+}
+
+resource "aws_lb_target_group" "example" {
+  name     = "ab1-target-group"
+  port     = 80
+  protocol = "HTTP"
+  vpc_id   = var.vpc_id
+}
+
