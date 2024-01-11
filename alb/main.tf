@@ -8,7 +8,7 @@ resource "aws_lb" "load-balancer" {
   enable_cross_zone_load_balancing = true
 
   access_logs {
-    bucket  = "ab1-alb-logs"
+    bucket  = "abuateef-2"
     prefix  = "logs"
     enabled = true
   }
