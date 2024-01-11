@@ -1,5 +1,5 @@
 output "launch-template"{
-value = aws_launch_configuration.launch-template
+value = aws_launch_template.launch-template
 }
 
 output "asg"{
