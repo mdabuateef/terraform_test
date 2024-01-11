@@ -17,6 +17,8 @@ module "alb" {
   source = "./alb"
   security_groups = module.sg.Security_grp.id
   vpc_id = module.vpc.vpc.id
+  subnet_1_id = module.vpc.public_subnet_1.id
+  subnet_2_id = module.vpc.public_subnet_2.id
 }
 
 module "sg" {
